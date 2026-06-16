@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  forwarder:
+    build: .
+    container_name: tg-bale-forwarder
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./downloads:/app/downloads
+
+    environment:
+      NODE_ENV: production
