@@ -22,7 +22,7 @@ const BALE_API = `https://tapi.bale.ai/bot${process.env.BALE_BOT_TOKEN}`;
 
 async function sendTextToBale(text) {
   await axios.post(`${BALE_API}/sendMessage`, {
-    chat_id: "4713244199",
+    chat_id: `${process.env.BALE_CHANNEL_ID}`,
     text,
   });
 }
@@ -91,7 +91,6 @@ telegramBot.on("channel_post", async (msg) => {
       return;
     }
 
- 
     console.log("Unsupported message type");
   } catch (error) {
     console.error(error.response?.data || error.message);
